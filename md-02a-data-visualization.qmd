@@ -48,7 +48,7 @@ library(rnaturalearth)
 ```{r}
 #| eval: true
  
-gapminder_2007 <- gapminder |> 
+gapminder_2007 <- gapminder |>
   filter (year == 2007) 
 ```
 
@@ -149,13 +149,13 @@ gapminder_summary_continent_year <- read_rds(here::here("data/gapminder-summary-
 
     -   continent is categorical, lifeExp is continuous
 
-        ```{r}
-        ggplot(data = gapminder_2007,
-               mapping = aes(x = continent,
-                             y = lifeExp,
-                             fill = continent)) +
-          geom_boxplot(outlier.shape = NA)
-        ```
+```{r}
+ggplot(data = gapminder_2007,
+       mapping = aes(x = continent,
+                     y = lifeExp,
+                     fill = continent)) +
+  geom_boxplot(outlier.shape = NA)
+```
 
 ## Task 7: Create a timeseries plot
 
@@ -169,15 +169,14 @@ gapminder_summary_continent_year <- read_rds(here::here("data/gapminder-summary-
 
 3.  Run the code contained in the code chunk and fix any errors.
 
-    ```{r}
-    ggplot(data = gapminder_summary_continent_year,
-           mapping = aes(x = year,
-                         y = lifeExp,
-                         color = continent)) +
-      geom_line() +
-      geom_point() 
-
-    ```
+```{r}
+ggplot(data = gapminder_summary_continent_year,
+       mapping = aes(x = year,
+                     y = lifeExp,
+                     color = continent)) +
+  geom_line() +
+  geom_point() 
+```
 
 ## Task 8: Create a barplot
 
@@ -192,13 +191,12 @@ gapminder_summary_continent_year <- read_rds(here::here("data/gapminder-summary-
 
 3.  Run the code contained in the code chunk and fix any errors.
 
-    ```{r}
-    ggplot(data=gapminder_summary_2007,
-           mapping = aes(x = continent,
-                         y = count)) +
-      geom_col()
-             
-    ```
+```{r}
+ggplot(data=gapminder_summary_2007,
+       mapping = aes(x = continent,
+                     y = count)) +
+  geom_col()
+```
 
 ### with `geom_bar()`
 
@@ -212,12 +210,12 @@ gapminder_summary_continent_year <- read_rds(here::here("data/gapminder-summary-
 
 4.  The plot is identical to the plot created with `geom_col()`. Why? What does the `geom_bar()` function do? Write your text here: The geom_bar() function creates a bar plot of the number of observations in each category of the x (continent) variable. The geom_col() function requires a y variable to be specified, while geom_bar() calculates the count of observations for the x variable by default.
 
-    ```{r}
-    ggplot(data = gapminder_2007,
-           mapping = aes(x = continent)) +
-      geom_bar()
+```{r}
+ggplot(data = gapminder_2007,
+       mapping = aes(x = continent)) +
+  geom_bar()
 
-    ```
+```
 
 ## Task 9: Create a histogram
 
@@ -243,14 +241,14 @@ gapminder_summary_continent_year <- read_rds(here::here("data/gapminder-summary-
 
 7.  What happens by adding the 'breaks' argument? Play around with the numbers inside of `seq()` to see what changes. Describe here what you observe: First value is lowest value where your x-axis will start, second value is highest value where your x-axis will end, third value is the width of each bar (new bar for every 2.5 years)
 
-    ```{r}
-    ggplot(data = gapminder_2007,
-           mapping = aes(x = lifeExp,
-                         fill = continent)) +
-      geom_histogram(col = "grey30",
-                     breaks = seq(40, 85, 2.5))
+```{r}
+ggplot(data = gapminder_2007,
+       mapping = aes(x = lifeExp,
+                     fill = continent)) +
+  geom_histogram(col = "grey30",
+                 breaks = seq(40, 85, 2.5))
       
-    ```
+```
 
 ## Task 10: Scatterplot and faceting
 
@@ -269,15 +267,15 @@ gapminder_summary_continent_year <- read_rds(here::here("data/gapminder-summary-
 
 6.  Run the code contained in the code chunk and fix any errors.
 
-    ```{r}
-    ggplot(data = gapminder_2007,
-           mapping = aes(x = gdpPercap,
-                         y = lifeExp,
-                         size = pop,
-                         color = continent)) +
-      geom_point() +
-      facet_wrap(~continent)
-    ```
+```{r}
+ggplot(data = gapminder_2007,
+       mapping = aes(x = gdpPercap,
+                     y = lifeExp,
+                     size = pop,
+                     color = continent)) +
+  geom_point() +
+  facet_wrap(~continent)
+```
 
 ## Task 11: Create a lineplot and use facets
 
